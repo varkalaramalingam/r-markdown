@@ -1,0 +1,155 @@
+---
+title: "Installation Procedure"
+---
+
+Reference:
+https://www.fosstechnix.com/setup-kubernetes-on-aws-using-kops/
+
+
+
+Install and configute awscli:
+-----------------------------
+
+
+apt-get install awscli -y
+
+
+
+aws configure
+
+
+
+aws  s3 ls
+
+
+
+Install kubectl:
+----------------
+
+
+sudo curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+
+
+
+sudo chmod +x ./kubectl
+
+
+
+sudo mv ./kubectl /usr/local/bin/kubectl
+
+
+
+KUBECTL AUTO-COMPLETE:
+----------------------
+apt-get install bash-completion
+
+source /usr/share/bash-completion/bash_completion
+
+echo 'source <(kubectl completion bash)' >>~/.bashrc
+
+kubectl completion bash >/etc/bash_completion.d/kubectl
+
+source <(kubectl completion bash)
+
+echo "source <(kubectl completion bash)" >> ~/.bashrc
+
+
+
+
+Install kops:
+-------------
+curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
+
+
+
+sudo chmod +x kops-linux-amd64
+
+
+
+
+sudo mv kops-linux-amd64 /usr/local/bin/kops
+
+
+
+Create s3 bucket and enable versioning:
+---------------------------------------
+
+
+
+aws s3 mb s3://kops.wysemeet.cf
+
+
+
+aws s3api put-bucket-versioning --bucket kops.wysemeet.cf --versioning-configuration Status=Enabled
+
+
+
+Start kops cluster:
+------------------
+
+
+export KOPS_STATE_STORE=s3://kops.wysemeet.cf
+
+
+
+ssh-keygen
+
+
+
+kops create cluster --cloud=aws --zones=ap-south-1a,ap-south-1b --networking calico --master-size t3.medium --master-count 1 --node-size t3.medium --node-count 1 --name=kops.wysemeet.cf --dns-zone=wysemeet.cf --ssh-public-key .ssh/id_rsa.pub  --dns public
+
+
+
+
+kops update cluster --name kops.wysemeet.cf --yes --admin
+
+
+
+
+kops validate cluster
+
+
+
+
+kubectl cluster-info
+
+
+
+
+kubectl get all
+
+
+
+
+kubectl get nodes
+
+
+
+
+How to add or change node size/type in Kops Cluster:
+----------------------------------------------------
+
+
+
+kops get ig
+
+
+
+
+kops edit ig master-ap-south-1a
+
+
+
+
+kubectl get nodes
+
+
+
+
+How to delete kops Cluster:
+----------------------------
+
+
+
+
+kops delete cluster --name=kops.wysecare.cf --state s3://kops.wysecare.cf --yes

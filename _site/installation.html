@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Installation Procedure</title>
+
+<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">kubernetes</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="installation.html">Installation Procedure</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Installation Procedure</h1>
+
+</div>
+
+
+<p>Reference: <a href="https://www.fosstechnix.com/setup-kubernetes-on-aws-using-kops/" class="uri">https://www.fosstechnix.com/setup-kubernetes-on-aws-using-kops/</a></p>
+<div id="install-and-configute-awscli" class="section level2">
+<h2>Install and configute awscli:</h2>
+<p>apt-get install awscli -y</p>
+<p>aws configure</p>
+<p>aws s3 ls</p>
+</div>
+<div id="install-kubectl" class="section level2">
+<h2>Install kubectl:</h2>
+<p>sudo curl -LO <a href="https://storage.googleapis.com/kubernetes-release/release/$(curl" class="uri">https://storage.googleapis.com/kubernetes-release/release/$(curl</a> -s <a href="https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl" class="uri">https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl</a></p>
+<p>sudo chmod +x ./kubectl</p>
+<p>sudo mv ./kubectl /usr/local/bin/kubectl</p>
+</div>
+<div id="kubectl-auto-complete" class="section level2">
+<h2>KUBECTL AUTO-COMPLETE:</h2>
+<p>apt-get install bash-completion</p>
+<p>source /usr/share/bash-completion/bash_completion</p>
+<p>echo ‘source &lt;(kubectl completion bash)’ &gt;&gt;~/.bashrc</p>
+<p>kubectl completion bash &gt;/etc/bash_completion.d/kubectl</p>
+<p>source &lt;(kubectl completion bash)</p>
+<p>echo “source &lt;(kubectl completion bash)” &gt;&gt; ~/.bashrc</p>
+</div>
+<div id="install-kops" class="section level2">
+<h2>Install kops:</h2>
+<p>curl -LO <a href="https://github.com/kubernetes/kops/releases/download/$(curl" class="uri">https://github.com/kubernetes/kops/releases/download/$(curl</a> -s <a href="https://api.github.com/repos/kubernetes/kops/releases/latest" class="uri">https://api.github.com/repos/kubernetes/kops/releases/latest</a> | grep tag_name | cut -d ‘"’ -f 4)/kops-linux-amd64</p>
+<p>sudo chmod +x kops-linux-amd64</p>
+<p>sudo mv kops-linux-amd64 /usr/local/bin/kops</p>
+</div>
+<div id="create-s3-bucket-and-enable-versioning" class="section level2">
+<h2>Create s3 bucket and enable versioning:</h2>
+<p>aws s3 mb s3://kops.wysemeet.cf</p>
+<p>aws s3api put-bucket-versioning –bucket kops.wysemeet.cf –versioning-configuration Status=Enabled</p>
+</div>
+<div id="start-kops-cluster" class="section level2">
+<h2>Start kops cluster:</h2>
+<p>export KOPS_STATE_STORE=s3://kops.wysemeet.cf</p>
+<p>ssh-keygen</p>
+<p>kops create cluster –cloud=aws –zones=ap-south-1a,ap-south-1b –networking calico –master-size t3.medium –master-count 1 –node-size t3.medium –node-count 1 –name=kops.wysemeet.cf –dns-zone=wysemeet.cf –ssh-public-key .ssh/id_rsa.pub –dns public</p>
+<p>kops update cluster –name kops.wysemeet.cf –yes –admin</p>
+<p>kops validate cluster</p>
+<p>kubectl cluster-info</p>
+<p>kubectl get all</p>
+<p>kubectl get nodes</p>
+</div>
+<div id="how-to-add-or-change-node-sizetype-in-kops-cluster" class="section level2">
+<h2>How to add or change node size/type in Kops Cluster:</h2>
+<p>kops get ig</p>
+<p>kops edit ig master-ap-south-1a</p>
+<p>kubectl get nodes</p>
+</div>
+<div id="how-to-delete-kops-cluster" class="section level2">
+<h2>How to delete kops Cluster:</h2>
+<p>kops delete cluster –name=kops.wysecare.cf –state s3://kops.wysecare.cf –yes</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

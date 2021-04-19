@@ -1,0 +1,10 @@
+name: "kubernetes"
+navbar:
+  title: "kubernetes"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+    - text: "Installation Procedure"
+      href: installation.html
